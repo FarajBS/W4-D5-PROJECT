@@ -1,0 +1,33 @@
+/* All Of Website */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #4F29B7;
+    --white-color: #fff;
+}
+
+body {
+    background-color: #F3F4F6;
+    font-family: "Fustat", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, span, a, label {
+    color: var(--main-color) !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+::placeholder {
+    font-weight: bold;
+    font-size: 0.9rem;
+    opacity: 0.1;
+    color: grey;
+    text-align: center;
+}
+/*=== All Of Website ===*/

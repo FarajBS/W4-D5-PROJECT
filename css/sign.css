@@ -1,0 +1,82 @@
+/* Form section */
+form {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form .form {
+    border-radius: 20px;
+    border: 3px solid #2d0a8d ;
+    width: 50%;
+}
+
+form .form .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form .form .icons div {
+    background-color: var(--main-color);
+    padding: 10px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+form .form .icons div:hover {
+    background-color: #2d0a8d !important;
+}
+
+form .form .icons span i {
+    margin-bottom: 0;
+}
+
+form button {
+    background-color: #4F29B7 !important;
+    color: #fff !important;
+    transition: all 0.3s;
+}
+
+form button:hover {
+    background-color: #2d0a8d !important;
+}
+
+.check {
+    background-color: rgb(240, 128, 128);
+    border-radius: 10px;
+    margin-bottom: 5px;
+    display: none;
+}
+
+#right {
+    width: 100%;
+    background-color: rgb(92, 158, 92);
+    border-radius: 10px;
+    padding: 5px;
+    display: none;
+}
+
+#pragRight {
+    margin: 0;
+}
+/*=== Form section ===*/
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Media */
+@media (max-width: 992px) {
+    form .form {
+        width: 80% !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    form .form {
+        width: 100% !important;
+        text-align: center;
+    }
+}
+
+/* Media */
