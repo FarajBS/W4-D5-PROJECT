@@ -11,6 +11,7 @@ let pragUserEmail       = document.getElementById('checkPragLo');
 let uPassword           = document.getElementById('password');
 let checkPassDiv        = document.getElementById('checkPassLo');
 let pragPass            = document.getElementById('checkPragPassLo');
+let pass2               = document.getElementById("password2");
 
 // Button For The Form //
 let uLogBtn             = document.getElementById('logBtn');
@@ -41,18 +42,23 @@ uLogBtn.addEventListener("click", (e) => {
             if (typeof(uUsernameEmail.value) === 'string' && uUsernameEmail.value == findUser[0].username ||
                 typeof(uUsernameEmail.value) === 'string' && uUsernameEmail.value == findUser[0].email) {
                 // True Username Or Email //
-                if (typeof(uPassword.value) === 'string' && uPassword.value == findUser[0].password) {
+                if (uPassword.value === pass2.value) {
                     // True Password //
-                    // sessionStorage //
-                    sessionStorage.setItem("idForUser", findUser[0].id);
-                    sessionStorage.setItem("nameForUser", findUser[0].name);
-                    sessionStorage.setItem("usernameForUser", findUser[0].username);
-                    sessionStorage.setItem("emailForUser", findUser[0].email);
-                    sessionStorage.setItem("passForUser", findUser[0].password);
-                    sessionStorage.setItem("PointsForUser", findUser[0].points);
-                    
+                    fetch(url + findUser[0].id, {
+                        method: 'PUT',
+                        body: JSON.stringify({
+                            password: uPassword.value
+                        }),
+                        headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                        },
+                    })
+                    .then((response) => response.json())
+                    .then((data) => 
+                        {
+                            window.location.href = "signIn.html";
+                        });
                     // Go To Home Page //
-                    window.location.href = "index.html";
                 } else {
                     // False Password //
                     checkPassDiv.style.display      = "block";

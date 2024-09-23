@@ -1,6 +1,6 @@
 // Variables //
 // URL For The API Database //
-const url               = "https://66e8036bb17821a9d9daf500.mockapi.io/users/";
+const url               = "https://66f16df8415379191550df7c.mockapi.io/users/";
 
 // All About Name //
 let uName               = document.getElementById('name');
@@ -84,7 +84,8 @@ uResBtn.addEventListener("click", (e) => {
                                                 name: uName.value,
                                                 username: uUsername.value,
                                                 email: uEmail.value,
-                                                password: uPass.value
+                                                password: uPass.value,
+                                                points: 0
                                             }),
                                             headers: {
                                             'Content-type': 'application/json; charset=UTF-8',

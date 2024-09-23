@@ -1,0 +1,142 @@
+<script>
+    if(sessionStorage.getItem("idForUser") === null && sessionStorage.getItem("nameForUser") === null) {
+        window.location.href = "signIn.html";
+    };
+</script>
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>الملف الشخصي</title>
+        <!-- Css Files -->
+        <link rel="icon" type="image/x-icon" href="images/favicon.jpg">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/main.css">
+        <!--/// Css Files ///-->
+    </head>
+
+    <body>
+        <!-- header Section -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary px-5">
+            <div class="container-fluid">
+                <a class="navbar-brand ms-4 fs-3 fw-bold" href="index.html">FBS</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 fw-semibold" aria-current="page" href="index.html">الرئيسية</a>
+                        </li>
+
+                        <li class="nav-item"></li>
+                            <a class="nav-link fs-4 fw-bold" aria-current="page" href="profile.html">الملف الشخصي</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 fw-semibold" aria-current="page" href="imageRights.html">الصور</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex">
+                        <a id="signOut" href="signIn.html" style="cursor: pointer;" class="nav-link fs-5 fw-semibold">تسجيل الخروج</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--/// header Section ///-->
+
+
+        <!-- Profile User Section -->
+        <div id="profile" class="mt-4 container profile p-3">
+            <h3 id="welUser" class="fs-2 fw-bold mb-3">مرحباً</h3>
+
+            <h4 class="fs-3 fw-semibold text-center">عدد النقاط</h4>
+
+            <div class="pointsContainer">
+                <h4 id="points" class="fs-4 fw-semibold py-5 px-4">0</h4>
+            </div>
+        </div>
+        <!--/// Profile User Section ///-->
+
+
+         <!-- Guess Word Game Section -->
+        <div id="information" class="mt-4 container information p-3">
+            <!-- Titles Game -->
+            <div class="titlesGame">
+                <h2 class="fs-2 fw-bold mb-3 text-center">معلوماتك</h2>
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 text-center p-3">
+                        <h3 id="nameProf"></h3>
+                        <input type="text" id="nameUpdate" class="form-control mt-4 fs-5" dir="auto" required placeholder="اكتب الاسم الجديد">
+                        <input id="passNameUpdate" class="form-control my-2 fs-5" type="password" dir="auto" required placeholder="اكتب كلمة المرور الحالية لحسابك" />
+                        <div class="form-control messa p-1 fs-5 text-light mb-2" id="messName">heh</div>
+                        <button id="btnNameUpdate" type="submit" class="btn form-control fs-5 fw-bold mb-3">تعديل</button>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 text-center p-3">
+                        <h3 id="usernameProf"></h3>
+                        <input type="text" id="usernameUpdate" class="form-control mt-4 fs-5" dir="auto" required placeholder="اكتب اسم المستخدم الجديد">
+                        <input id="passUsernameUpdate" class="form-control my-2 fs-5" type="password" dir="auto" required placeholder="اكتب كلمة المرور الحالية لحسابك" />
+                        <div class="form-control messa p-1 fs-5 text-light mb-2" id="messUsername"></div>
+                        <button id="btnUsernameUpdate" type="submit" class="btn form-control fs-5 fw-bold mb-3">تعديل</button>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 text-center p-3 mt-3">
+                        <h3 id="emailProf"></h3>
+                        <input type="text" id="emailUpdate" class="form-control mt-4 fs-5" dir="auto" required placeholder="اكتب البريد الإلكتروني الجديد">
+                        <input id="passEmailUpdate" class="form-control my-2 fs-5" type="password" dir="auto" required placeholder="اكتب كلمة المرور الحالية لحسابك" />
+                        <div class="form-control messa p-1 fs-5 text-light mb-2" id="messEmail"></div>
+                        <button id="btnEmailUpdate" type="submit" class="btn form-control fs-5 fw-bold mb-3">تعديل</button>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 text-center p-3 mt-3">
+                        <h3 id="passwordProf"></h3>
+                        <input type="password" id="passUpdate" class="form-control mt-4 fs-5" dir="auto" required placeholder="اكتب كلمة المرور الجديدة">
+                        <input id="passPasswordUpdate" class="form-control my-2 fs-5" type="password" dir="auto" required placeholder="اكتب كلمة المرور الحالية لحسابك" />
+                        <div class="form-control messa p-1 fs-5 text-light mb-2" id="messPass"></div>
+                        <button id="btnPassUpdate" type="submit" class="btn form-control fs-5 fw-bold mb-3">تعديل</button>
+                    </div>
+                </div>
+
+                <!-- delete -->
+                <div class="d-flex justify-content-center align-items-center">
+                    <button id="delete" type="submit" class="btn form-control fs-5 fw-bold mb-3">حذف الحساب</button>
+                </div>
+            </div>
+            <!--// Titles Game //-->
+        </div>
+        <!--/// Guess Word Game Section ///-->
+
+        <!-- Footer Section -->
+        <footer class="mt-4 p-4">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h4>جميع الحقوق محفوظة لصالح 
+                        <a target="_blank" href="https://tangerine-nasturtium-2d52e1.netlify.app/">
+                            <span><i class="fa-solid fa-globe fa-fw"></i></span> FBS
+                        </a>
+                    </h4>
+                </div>
+            </div>
+        </footer>
+        <!--/// Footer Section ///-->
+
+        <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- Js Files -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+        <script src="js/profile.js"></script>
+        <!--/// Js Files ///-->
+    </body>
+</html>

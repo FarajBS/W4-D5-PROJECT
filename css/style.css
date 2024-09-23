@@ -15,8 +15,13 @@ body {
     font-family: "Fustat", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, span, a, label {
+h1, h2, h3, h4, h5, h6, span, a, label, p, input, i, li {
     color: var(--main-color) !important;
+    transition: all 0.3s;
+}
+
+a:hover {
+    color: #1f007a !important;
 }
 
 a {

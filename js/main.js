@@ -1,34 +1,54 @@
 // Setting Game Options //
-let numbersOfTries  = 1;
-let currentTry      = 1;
+let increasePoints      = 5;
 //--- Setting Game Options ---//
 
+// URL For The API Database //
+const url               = "https://66f16df8415379191550df7c.mockapi.io/users/";
+//-- URL For The API Database --//
+
 // Profile User Section //
-let point           = document.getElementById("points");
+let welUser             = document.getElementById("welUser");
+if (sessionStorage.getItem("nameForUser") === null) {
+    welUser.textContent = "مرحباً";
+} else {
+    welUser.textContent = `مرحباً ${sessionStorage.getItem("nameForUser")}`;
+};
+
+let point               = document.getElementById("points");
+if (sessionStorage.getItem('nameForUser') === null) {
+    point.textContent   = 0;
+} else {
+    point.textContent   = sessionStorage.getItem('PointsForUser');
+};
 //-- Profile User Section --//
 
 // Variables //
 // Images //
-const imgWord1      = document.getElementById("imgWordOne");
-const imgWord2      = document.getElementById("imgWordTwo");
-const imgWord3      = document.getElementById("imgWordThree");
+const imgWord1          = document.getElementById("imgWordOne");
+const imgWord2          = document.getElementById("imgWordTwo");
+const imgWord3          = document.getElementById("imgWordThree");
 //-- Images --//
 
 // Lists //
-const li1           = document.getElementById("listOne");
-const li2           = document.getElementById("listTwo");
-const li3           = document.getElementById("listThree");
+const li1               = document.getElementById("listOne");
+const li2               = document.getElementById("listTwo");
+const li3               = document.getElementById("listThree");
 //-- Lists --//
 
 // Checking //
-const inpWord       = document.getElementById("inputWord");
-const btnWord       = document.getElementById("buttonWord");
+const inpWord           = document.getElementById("inputWord");
+const btnWord           = document.getElementById("buttonWord");
+const btnReload         = document.getElementById("reload");
 //-- Checking --//
 
 // Message //
-let mess            = document.getElementById("message");
-let titleMess       = document.getElementById("titleMessage")
-//-- Message --// 
+let mess                = document.getElementById("message");
+let titleMess           = document.getElementById("titleMessage")
+//-- Message --//
+
+// Sign Out //
+const signOut           = document.getElementById("signOut"); 
+//-- Sign Out --//
 //--- Variables ---//
 
 // ------------------------------------------------------------------------------------------------------------------------------------------- //
@@ -243,38 +263,80 @@ if (wordToGuess == "مكة المكرمة") {
 //-- Areas information --//
 //--- Manage Words ---//
 
-console.log(wordToGuess);
-
 // ------------------------------------------------------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------------------------------------------------------- //
 // ------------------------------------------------------------------------------------------------------------------------------------------- //
 
 // Click (btnWord) //
 btnWord.addEventListener("click", () => {
-    console.log(inpWord.value)
-    if (inpWord.value != "") {
+    if (inpWord.value.trim() != "") {
         // True Checking Empty Or Not //
-        if (inpWord.value == wordToGuess) {
+        if (inpWord.value.trim() == wordToGuess) {
             // True Checking (inpWord == (wordToGuess)) //
             inpWord.classList.add("disabled-inputs");
-            mess.style.display = "block";
+            btnWord.classList.add("disabled-inputs");
+            mess.style.display                  = "block";
+            titleMess.style.display             = "block";
             titleMess.style.backgroundColor     = "rgb(92, 158, 92)";
             titleMess.textContent               = `الإجابة صحيحة: المنطقة هي {${wordToGuess}}.`
-            point.textContent           += 2; 
+            
+            // Put //
+            if (sessionStorage.getItem("PointsForUser") !== null) {
+                sessionStorage.setItem("PointsForUser", parseInt(sessionStorage.getItem('PointsForUser')) + increasePoints);
+                
+                fetch(url + sessionStorage.getItem('idForUser'), {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        points: sessionStorage.getItem('PointsForUser')
+                    }),
+                    headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                .then((response) => response.json())
+                .then((data) => 
+                    {
+                
+                });
+            };
+            //- Put -//
+
         } else {
             // False Checking (inpWord == (wordToGuess)) //
             inpWord.classList.add("disabled-inputs");
-            mess.style.display = "block";
+            btnWord.classList.add("disabled-inputs");
+            mess.style.display                  = "block";
+            titleMess.style.display             = "block";
             titleMess.style.backgroundColor     = "rgb(240, 128, 128)";
             titleMess.textContent               = `الأجابة خاطئة: المنطقة هي {${wordToGuess}}.`
         };
     } else {
         // False Checking Empty Or Not //
-            inpWord.classList.add("disabled-inputs");
-        mess.style.display = "block";
+        mess.style.display                      = "block";
+        titleMess.style.display                 = "block";
         titleMess.style.backgroundColor         = "rgb(240, 128, 128)";
         titleMess.textContent                   = "لم تكتب اسم المنطقة"
     };
 });
-// Click (btnWord) //
+//--- Click (btnWord) ---//
 
+// =========================================================================================================================================== //
+// =========================================================================================================================================== //
+// =========================================================================================================================================== //
+
+
+// Reload BTN //
+btnReload.addEventListener("click", () => {
+    window.location.reload();
+});
+//--- Reload BTN ---//
+
+// =========================================================================================================================================== //
+// =========================================================================================================================================== //
+// =========================================================================================================================================== //
+
+// Sign Out //
+signOut.addEventListener("click", () => {
+    sessionStorage.clear();
+});
+//--- Sign Out ---//

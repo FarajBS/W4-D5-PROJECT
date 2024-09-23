@@ -1,5 +1,5 @@
 /* Profile */
-.profile, .guessWord, .imageRights {
+.profile, .guessWord, .imageRights, .information {
     background-color: #fff;
     border-radius: 20px;
 }
@@ -28,7 +28,7 @@
     flex-direction: column;
 }
 
-.checkPart #inputWord, .checkPart #buttonWord, #titleMessage {
+.checkPart #inputWord, .checkPart #buttonWord, .checkPart #reload, #titleMessage {
     width: 50%;
 }
 
@@ -42,13 +42,65 @@
     background-color: #2d0a8d !important;
 }
 
-.message  {
+.checkPart #reload {
+    background-color: #547FFF;
+    color: #fff !important;
+    transition: all 0.3s;
+}
+
+.checkPart #reload:hover {
+    background-color: #1640c0 !important;
+}
+
+.message, .message #titleMessage {
     display: none;
 }
 
 .disabled-inputs {
     opacity: 0.5;
     pointer-events: none;
+}
+
+.information .messa {
+    display: none;
+}
+
+.information button {
+    background-color: #4F29B7;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.information button:hover {
+    background-color: #2d0a8d;
+}
+
+#delete {
+    width: 50%;
+    background-color: rgb(240, 128, 128);
+}
+
+#delete:hover {
+    color: #fff;
+    background-color: rgb(214, 99, 99);
+}
+
+footer {
+    max-width: 100%;
+    background-color: #4F29B7;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+footer h4, footer i, footer a {
+    color: #fff !important;
+    margin-bottom: 0;
+}
+
+footer a:hover {
+    font-size: 2rem;
+    color: #fff !important;
 }
 
 /*=== Check Part ===*/
@@ -59,7 +111,7 @@
 
 /* Media */
 @media (max-width: 767px) {
-    .checkPart #inputWord, .checkPart #buttonWord, .message h3 {
+    .checkPart #inputWord, .checkPart #buttonWord, .checkPart #reload, .message h3, #delete {
         width: 100% !important;
     }
 }
