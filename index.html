@@ -11,13 +11,148 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/home.css">
         <!--/// Css Files ///-->
     </head>
 
     <body>
-        
+        <!-- header Section -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary px-5">
+            <div class="container-fluid">
+                <a class="navbar-brand ms-4 fs-3 fw-bold" href="index.html">FBS</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link fs-4 fw-bold active" aria-current="page" href="index.html">الرئيسية</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 fw-normal" aria-current="page" href="imageRights.html">حقوق الصور</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex">
+                        <a id="signOut" style="cursor: pointer;" class="nav-link fs-5 fw-semibold">تسجيل الخروج</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--/// header Section ///-->
 
 
+        <!-- Profile User Section -->
+        <div id="profile" class="mt-4 container profile p-3">
+            <h3 class="fs-2 fw-bold mb-3">مرحباً المستخدم</h3>
+
+            <h4 class="fs-3 fw-semibold text-center">عدد النقاط</h4>
+
+            <div class="pointsContainer">
+                <h4 id="points" class="fs-4 fw-semibold py-5 px-4" value="0">0</h4>
+            </div>
+        </div>
+        <!--/// Profile User Section ///-->
+
+
+         <!-- Guess Word Game Section -->
+         <div id="guessWord" class="mt-4 container guessWord p-3">
+            <!-- Titles Game -->
+            <div class="titlesGame">
+                <h2 class="fs-2 fw-bold text-center">لعبة تخمين الكلمات</h2>
+
+                <h3 class="fs-3 fw-bold text-center">(<span class="text-decoration-underline">االيوم الوطني</span>)</h3>
+            </div>
+            <!--// Titles Game //-->
+
+            <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+
+            <!-- Instructions The Game -->
+            <!-- <div class="text-center my-5">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <h2>التعليمات</h2>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div> -->
+            <!--// Instructions The Game //-->
+
+            <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+
+            <!-- The Game -->
+            <div class="text-center my-5">
+                <div class="text-center">
+                    <h3 class=" fs-2 fw-bold mb-3">التلميحات</h3>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div id="carouselExampleInterval" class="carousel slide mb-2" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="10000">
+                                    <img id="imgWordOne" src="" class="d-block w-100" alt="Image For the word">
+                                </div>
+
+                                <div class="carousel-item" data-bs-interval="2000">
+                                    <img id="imgWordTwo" src="" class="d-block w-100" alt="Image For the word">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img id="imgWordThree" src="" class="d-block w-100" alt="Image For the word">
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">السابق</span>
+                            </button>
+
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                 <span class="visually-hidden">التالي</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6">
+                        <ul class="h-100 d-flex justify-content-center align-items-center flex-column px-5 px-md-3">
+                            <div class="text-end">
+                                <li id="listOne" class="fs-4 fw-semibold"></li>
+                                <li id="listTwo" class="fs-4 fw-semibold"></li>
+                                <li id="listThree" class="fs-4 fw-semibold"></li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--// The Game //-->
+
+            <!-- Check Part -->
+            <div class="checkPart">
+                <input id="inputWord" type="text" class="form-control mb-2 fs-4" dir="auto" required placeholder="اكتب اسم المنطقة">
+                <button id="buttonWord" class="form-control fs-4 checkWord" type="submit">تحقق</button>
+            </div>
+            <!--// Check Part //-->
+
+             <!-- Message -->
+             <div id="message" class="message d-flex justify-content-center mt-3 text-center">
+                <h3 id="titleMessage" class="fs-2 fw-semiblod text-light form-control "></h3>
+            </div>
+            <!--// Message //-->
+
+        </div>
+        <!--/// Guess Word Game Section ///-->
 
 
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->

@@ -1,0 +1,72 @@
+/* Profile */
+.profile, .guessWord, .imageRights {
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.profile .pointsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile .pointsContainer h4 {
+    background-color: #4F29B7;
+    color: #fff !important;
+    border-radius: 50px;
+}
+/*=== Profile ===*/
+
+/* =========================================================================================================================================== */
+/* =========================================================================================================================================== */
+
+/*=== Check Part ===*/
+.checkPart, .message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.checkPart #inputWord, .checkPart #buttonWord, #titleMessage {
+    width: 50%;
+}
+
+.checkPart #buttonWord {
+    background-color: #4F29B7;
+    color: #fff !important;
+    transition: all 0.3s;
+}
+
+.checkPart #buttonWord:hover {
+    background-color: #2d0a8d !important;
+}
+
+.message  {
+    display: none;
+}
+
+.disabled-inputs {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/*=== Check Part ===*/
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Media */
+@media (max-width: 767px) {
+    .checkPart #inputWord, .checkPart #buttonWord, .message h3 {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .profile, .imageRights {
+        text-align: center !important;
+    }
+}
+/*=== Media ===*/
